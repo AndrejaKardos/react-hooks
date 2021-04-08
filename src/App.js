@@ -5,6 +5,7 @@ import Buttons from './Buttons.jsx'
 import useLocalStorage from './useLocalStorage.jsx'
 import useUpdateLogger from './useUpdateLogger.jsx'
 import Context from './Context.jsx'
+import LearnReducer from './LearnReducer.jsx'
 
 function App() {
   const [name, setName] = useLocalStorage('name', '')
@@ -16,6 +17,7 @@ function App() {
       <Example />
       <Context />
       {/* <Buttons />  */}
+      <LearnReducer />
     </div>
   );
 }
