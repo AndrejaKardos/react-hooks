@@ -1,4 +1,5 @@
 import React, { useState, useReducer } from 'react' 
+import Todo from './Todo.jsx'
 
 
 const ACTIONS = {
@@ -39,7 +40,7 @@ function TodoList() {
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
             </form>
             {todos.map(todo =>
-                // <Todo key={todo.id} todo={todo} />
+                <Todo key={todo.id} todo={todo} />
             )}
         </>
     )
