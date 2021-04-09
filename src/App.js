@@ -6,6 +6,7 @@ import useLocalStorage from './useLocalStorage.jsx'
 import useUpdateLogger from './useUpdateLogger.jsx'
 import Context from './Context.jsx'
 import LearnReducer from './LearnReducer.jsx'
+import Todo from './Todo.jsx'
 
 function App() {
   const [name, setName] = useLocalStorage('name', '')
