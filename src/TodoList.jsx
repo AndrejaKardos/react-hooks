@@ -2,7 +2,7 @@ import React, { useState, useReducer } from 'react'
 import Todo from './Todo.jsx'
 
 
-const ACTIONS = {
+export const ACTIONS = {
     ADD_TODO: 'add-todo',
     TOGGLE_TODO: 'toggle-todo'
 }
@@ -12,7 +12,11 @@ function reducer(todos, action) {
         case ACTIONS.ADD_TODO: 
             return [...todos, newTodo(action.payload.name)]
         case ACTIONS.TOGGLE_TODO:
-            return []
+            return todos.map(todo => {
+                if (todo.id === action.payload.id) {
+                    return {...todo, complete: !todo.complete}
+                }
+            })
         default:
             return todos
     }
@@ -40,7 +44,7 @@ function TodoList() {
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
             </form>
             {todos.map(todo =>
-                <Todo key={todo.id} todo={todo} />
+                <Todo key={todo.id} todo={todo} dispatch={dispatch} />
             )}
         </>
     )
